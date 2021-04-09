@@ -1,11 +1,14 @@
 import axios from "axios";
 
-const BASEURL = "https://api.giphy.com/v1/gifs/search?q=";
-const APIKEY = "&api_key=dc6zaTOxFJmzC&limit=20";
+const RANDOM = "https://dog.ceo/api/breeds/image/random";
+const IMAGES = "https://dog.ceo/api/breed/" + query + "/images";
 
-// Export an object with a "search" method that searches the Giphy API for the passed query
+// Export an object with a "search" method that searches the Dog Ceo API for the passed query
 export default {
-  search: function(query) {
-    return axios.get(BASEURL + query + APIKEY);
-  }
+    search: function (query) {
+        return axios.get(IMAGES + query);
+    },
+    random: function (query) {
+        return axios.get(RANDOM);
+    }
 };
